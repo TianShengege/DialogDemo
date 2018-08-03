@@ -1,16 +1,21 @@
 package com.example.user.test;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import com.example.user.test.Rt.Retrofits;
+import com.example.user.test.Rt.XYHandler;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener,XYHandler.HandleMsgListener {
 
     private Button bt;
+    private TextView tv;
 
     Context context;
 
@@ -21,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         context = this;
         bt = (Button) findViewById(R.id.button);
+        tv=(TextView)findViewById(R.id.textView2) ;
         bt.setOnClickListener(this);
+        XYHandler.getInstance().setHandleMsgListener(this);
     }
 
     SexDialog sexDialog;
@@ -37,12 +44,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 sexDialog.setOnSexClick(new SexDialog.onSexClick() {
                     @Override
                     public void setOnsex(String sex) {
-                        Toast.makeText(context, "网络连接重试成功" + sex, Toast.LENGTH_LONG).show();
                         if(sexDialog!=null)   sexDialog.dismiss();
+                        Retrofits.getInstance().initRetrofit(tv);
                     }
                 });
                 break;
         }
     }
 
+
+    @Override
+    public void handleMsg(Message msg) {
+        final String data = (String) msg.obj;
+        switch (msg.what) {
+            case 1:
+                break;
+        }
+
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.user.test;
+package com.example.user.test.Rt;
 
 public class Student {
 
@@ -36,36 +36,36 @@ public class Student {
      * updated_at : 2016-06-23T20:22:05Z
      */
 
-    private String login;
-    private int id;
-    private String avatar_url;
-    private String gravatar_id;
-    private String url;
-    private String html_url;
-    private String followers_url;
-    private String following_url;
-    private String gists_url;
-    private String starred_url;
-    private String subscriptions_url;
-    private String organizations_url;
-    private String repos_url;
-    private String events_url;
-    private String received_events_url;
-    private String type;
-    private boolean site_admin;
-    private String name;
-    private String company;
-    private String blog;
-    private String location;
-    private String email;
-    private boolean hireable;
-    private Object bio;
-    private int public_repos;
-    private int public_gists;
-    private int followers;
-    private int following;
-    private String created_at;
-    private String updated_at;
+    public String login;
+    public int id;
+    public String avatar_url;
+    public String gravatar_id;
+    public String url;
+    public String html_url;
+    public String followers_url;
+    public String following_url;
+    public String gists_url;
+    public String starred_url;
+    public String subscriptions_url;
+    public String organizations_url;
+    public String repos_url;
+    public String events_url;
+    public String received_events_url;
+    public String type;
+    public boolean site_admin;
+    public String name;
+    public String company;
+    public String blog;
+    public String location;
+    public String email;
+    public boolean hireable;
+    public Object bio;
+    public int public_repos;
+    public int public_gists;
+    public int followers;
+    public int following;
+    public String created_at;
+    public String updated_at;
 
     public String getLogin() {
         return login;
@@ -305,5 +305,41 @@ public class Student {
 
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "login='" + login + '\'' +
+                ", id=" + id +
+                ", avatar_url='" + avatar_url + '\'' +
+                ", gravatar_id='" + gravatar_id + '\'' +
+                ", url='" + url + '\'' +
+                ", html_url='" + html_url + '\'' +
+                ", followers_url='" + followers_url + '\'' +
+                ", following_url='" + following_url + '\'' +
+                ", gists_url='" + gists_url + '\'' +
+                ", starred_url='" + starred_url + '\'' +
+                ", subscriptions_url='" + subscriptions_url + '\'' +
+                ", organizations_url='" + organizations_url + '\'' +
+                ", repos_url='" + repos_url + '\'' +
+                ", events_url='" + events_url + '\'' +
+                ", received_events_url='" + received_events_url + '\'' +
+                ", type='" + type + '\'' +
+                ", site_admin=" + site_admin +
+                ", name='" + name + '\'' +
+                ", company='" + company + '\'' +
+                ", blog='" + blog + '\'' +
+                ", location='" + location + '\'' +
+                ", email='" + email + '\'' +
+                ", hireable=" + hireable +
+                ", bio=" + bio +
+                ", public_repos=" + public_repos +
+                ", public_gists=" + public_gists +
+                ", followers=" + followers +
+                ", following=" + following +
+                ", created_at='" + created_at + '\'' +
+                ", updated_at='" + updated_at + '\'' +
+                '}';
     }
 }
