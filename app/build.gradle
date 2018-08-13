@@ -1,6 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    signingConfigs {
+        xyyou_game {
+            keyAlias 'android.keystore'
+            keyPassword '123456'
+            storeFile file('D:/SVN/XYweiduan/秘钥/keystore/android.keystore')
+//            storeFile file('/Volumes/Data/KingNet/keystore/android.keystore')
+            storePassword '123456'
+        }
+
+    }
+
     compileSdkVersion 23
     buildToolsVersion '27.0.3'
     defaultConfig {
@@ -10,11 +22,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.xyyou_game
+        }
+        debug {
         }
     }
 }

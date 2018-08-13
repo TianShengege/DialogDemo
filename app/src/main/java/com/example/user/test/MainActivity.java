@@ -26,8 +26,8 @@ public class MainActivity extends Activity implements View.OnClickListener,XYHan
         setContentView(R.layout.activity_main);
         context = this;
         bt = (Button) findViewById(R.id.button);
-        tv=(TextView)findViewById(R.id.textView2) ;
-        bt.setOnClickListener(this);
+       tv=(TextView)findViewById(R.id.textView2) ;
+         bt.setOnClickListener(this);
         XYHandler.getInstance().setHandleMsgListener(this);
     }
 
