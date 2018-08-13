@@ -6,7 +6,7 @@ android {
         xyyou_game {
             keyAlias 'android.keystore'
             keyPassword '123456'
-            storeFile file('D:/SVN/XYweiduan/秘钥/keystore/android.keystore')
+            storeFile file('/Work/svn/keystore/android.keystore')
 //            storeFile file('/Volumes/Data/KingNet/keystore/android.keystore')
             storePassword '123456'
         }
