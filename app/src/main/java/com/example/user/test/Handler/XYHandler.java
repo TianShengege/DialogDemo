@@ -1,11 +1,13 @@
-package com.example.user.test.Rt;
+package com.example.user.test.Handler;
 
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 
-
+/**
+ * 全局监听
+ */
 @SuppressLint("HandlerLeak")
 public class XYHandler extends Handler {
 

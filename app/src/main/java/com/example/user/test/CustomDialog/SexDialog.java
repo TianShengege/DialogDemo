@@ -1,4 +1,4 @@
-package com.example.user.test;
+package com.example.user.test.CustomDialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import com.example.user.test.R;
 
 public class SexDialog  extends Dialog {
 

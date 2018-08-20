@@ -1,4 +1,4 @@
-package com.example.user.test.Rt;
+package com.example.user.test.Entity;
 
 public class Student {
 

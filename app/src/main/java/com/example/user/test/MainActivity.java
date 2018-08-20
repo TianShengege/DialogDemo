@@ -8,44 +8,54 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.user.test.Constant.Constant;
+import com.example.user.test.CreateImea.Imea;
+import com.example.user.test.CustomDialog.SexDialog;
 import com.example.user.test.Rt.Retrofits;
-import com.example.user.test.Rt.XYHandler;
+import com.example.user.test.Handler.XYHandler;
 
 
-public class MainActivity extends Activity implements View.OnClickListener,XYHandler.HandleMsgListener {
+public class MainActivity extends Activity implements View.OnClickListener, XYHandler.HandleMsgListener {
 
     private Button bt;
     private TextView tv;
 
-    Context context;
-
+    private Context context;
+    private SexDialog sexDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
-        bt = (Button) findViewById(R.id.button);
-       tv=(TextView)findViewById(R.id.textView2) ;
-         bt.setOnClickListener(this);
-        XYHandler.getInstance().setHandleMsgListener(this);
+        init();
     }
 
-    SexDialog sexDialog;
+    public void init() {
+        bt = findViewById(R.id.button);
+        tv = findViewById(R.id.textView2);
+        bt.setOnClickListener(this);
+        XYHandler.getInstance().setHandleMsgListener(this);
+        new Imea().getImea(this);
+
+    }
+
+
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
             case R.id.button:
-                if(sexDialog==null){
+                if (sexDialog == null) {
                     sexDialog = new SexDialog(context);
                 }
                 sexDialog.show();
+
                 sexDialog.setOnSexClick(new SexDialog.onSexClick() {
                     @Override
                     public void setOnsex(String sex) {
-                        if(sexDialog!=null)   sexDialog.dismiss();
-                        Retrofits.getInstance().initRetrofit(tv);
+                        if (sexDialog != null) sexDialog.dismiss();
+                        new Retrofits().initRetrofit();
                     }
                 });
                 break;
@@ -57,7 +67,8 @@ public class MainActivity extends Activity implements View.OnClickListener,XYHan
     public void handleMsg(Message msg) {
         final String data = (String) msg.obj;
         switch (msg.what) {
-            case 1:
+            case Constant.REQUEST_SUCCESS:
+                tv.setText("请求成功"+data);
                 break;
         }
 

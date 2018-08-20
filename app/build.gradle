@@ -13,12 +13,12 @@ android {
 
     }
 
-    compileSdkVersion 23
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.user.test"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,8 +38,7 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api 'com.android.support:support-v4:23.4.0'
-    //rxjava
+    api 'com.android.support:support-v4:27.1.1'    //rxjava
     api 'io.reactivex:rxandroid:1.1.0'
     //rxandroid
     api 'com.google.code.gson:gson:2.7'
@@ -50,4 +49,6 @@ dependencies {
     // network
     api 'io.reactivex:rxjava:1.1.0'
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //权限库
+    api 'com.yanzhenjie:permission:2.0.0-rc11'
 }
