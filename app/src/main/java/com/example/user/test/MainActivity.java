@@ -28,7 +28,7 @@ import static android.content.ContentValues.TAG;
 
 public class MainActivity extends Activity implements View.OnClickListener, XYHandler.HandleMsgListener {
 
-    private static final int RC_SIGN_IN =10001;
+    private static final int RC_SIGN_IN =10003;
     private Button bt;
     private TextView tv;
 
@@ -103,10 +103,10 @@ public class MainActivity extends Activity implements View.OnClickListener, XYHa
             case Constant.REQUEST_SUCCESS:
                 tv.setText("请求成功"+data);
                 break;
-            case Constant.BT_GOOGLELOFIN_SUCCESS:
+            case Constant.BT_GOOGLELOGIN_SUCCESS:
                 btGoogle.setVisibility(View.INVISIBLE);
                 break;
-            case Constant.BT_GOOGLELOFIN_FAIL:
+            case Constant.BT_GOOGLELOGIN_FAIL:
                 btGoogle.setVisibility(View.VISIBLE);
                 break;
         }
@@ -117,7 +117,7 @@ public class MainActivity extends Activity implements View.OnClickListener, XYHa
     protected void onStart() {
       if(GoogleSignIn.getLastSignedInAccount(this)!=null){
           //用户已经登陆,隐藏这个登陆按钮
-          XYHandler.getInstance().sendEmptyMessage(Constant.BT_GOOGLELOFIN_SUCCESS);
+          XYHandler.getInstance().sendEmptyMessage(Constant.BT_GOOGLELOGIN_SUCCESS);
       }
         super.onStart();
     }
@@ -138,11 +138,11 @@ public class MainActivity extends Activity implements View.OnClickListener, XYHa
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // 登陆成功显示ui.
-            XYHandler.getInstance().sendEmptyMessage(Constant.BT_GOOGLELOFIN_SUCCESS);
+            XYHandler.getInstance().sendEmptyMessage(Constant.BT_GOOGLELOGIN_SUCCESS);
         } catch (ApiException e) {
             //登陆失败
             Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
-            XYHandler.getInstance().sendEmptyMessage(Constant.BT_GOOGLELOFIN_FAIL);
+            XYHandler.getInstance().sendEmptyMessage(Constant.BT_GOOGLELOGIN_FAIL);
         }
     }
 }

@@ -5,6 +5,6 @@ public class Constant {
     public final static String URL_BASE = "https://api.github.com/users/";
     public final static int REQUEST_SUCCESS = 10000;
 
-    public static final int BT_GOOGLELOFIN_FAIL = 10002;
-    public static final int BT_GOOGLELOFIN_SUCCESS = 10001;
+    public static final int BT_GOOGLELOGIN_FAIL = 10002;
+    public static final int BT_GOOGLELOGIN_SUCCESS = 10001;
 }
