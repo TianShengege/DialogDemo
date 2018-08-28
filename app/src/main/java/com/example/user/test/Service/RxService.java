@@ -1,9 +1,9 @@
 package com.example.user.test.Service;
 
-import com.example.user.test.Rt.RxText;
 
 import retrofit2.http.GET;
 import rx.Observable;
+
 
 /**
  * url添加后缀，Rx框架使用

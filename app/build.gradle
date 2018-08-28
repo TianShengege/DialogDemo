@@ -38,6 +38,9 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
+    //google play
+    api 'com.google.android.gms:play-services-auth:15.0.1'
+
     api 'com.android.support:support-v4:27.1.1'    //rxjava
     api 'io.reactivex:rxandroid:1.1.0'
     //rxandroid

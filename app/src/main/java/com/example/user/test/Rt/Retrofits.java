@@ -2,13 +2,13 @@ package com.example.user.test.Rt;
 
 import android.os.Message;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.example.user.test.Constant.Constant;
 import com.example.user.test.Entity.Student;
 import com.example.user.test.Handler.XYHandler;
 import com.example.user.test.Service.RequestServices;
 import com.example.user.test.Service.RxService;
+import com.example.user.test.Service.RxText;
 import com.google.gson.Gson;
 
 import java.io.IOException;
