@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.user.test.Constant.Constant;
 import com.example.user.test.CreateImea.Imea;
 import com.example.user.test.CustomDialog.SexDialog;
+import com.example.user.test.Rt.GetLogo;
 import com.example.user.test.Rt.Retrofits;
 import com.example.user.test.Handler.XYHandler;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -37,6 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener, XYHa
     private SignInButton btGoogle;
     public GoogleSignInOptions gso;
     private GoogleSignInClient mGoogleSignInClient;
+    private Button btLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +52,11 @@ public class MainActivity extends Activity implements View.OnClickListener, XYHa
         bt = findViewById(R.id.button);
         tv = findViewById(R.id.textView2);
         btGoogle = findViewById(R.id.google_login);
+        btLogo=findViewById(R.id.bt_logo);
         btGoogle.setSize(SignInButton.SIZE_STANDARD);
         bt.setOnClickListener(this);
         btGoogle.setOnClickListener(this);
+        btLogo.setOnClickListener(this);
         XYHandler.getInstance().setHandleMsgListener(this);
         new Imea().getImea(this);
         //google登陆初始化
@@ -83,6 +87,9 @@ public class MainActivity extends Activity implements View.OnClickListener, XYHa
                 
             case R.id.google_login:
                 googleLogin();
+                break;
+            case R.id.bt_logo:
+                new GetLogo(this).initRetrofit();
                 break;
         }
     }

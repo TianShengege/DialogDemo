@@ -10,4 +10,7 @@ import retrofit2.http.GET;
 public interface RequestServices {
     @GET("basil2style")
     Call<ResponseBody> getString();
+
+    @GET("00000")
+    Call<ResponseBody> getLogo();
 }
