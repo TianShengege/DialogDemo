@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.user.test.Constant.Constant;
+import com.example.user.test.CreateImea.GetIp;
 import com.example.user.test.Service.RequestServices;
 
 
@@ -38,6 +39,7 @@ public class GetLogo {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.message().equals("OK")) {
+                    new GetIp(context).getIp();
                     Toast.makeText(context,"正常加载"+response.message(),Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(context,"网页有可能被劫持，请知悉",Toast.LENGTH_LONG).show();

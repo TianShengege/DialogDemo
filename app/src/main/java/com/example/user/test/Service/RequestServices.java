@@ -11,6 +11,6 @@ public interface RequestServices {
     @GET("basil2style")
     Call<ResponseBody> getString();
 
-    @GET("00000")
+    @GET("favicon.ico")
     Call<ResponseBody> getLogo();
 }
