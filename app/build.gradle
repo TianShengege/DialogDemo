@@ -30,8 +30,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.xyyou_game
+
+//            aaptOptions.cruncherEnabled = false
+//            aaptOptions.useNewCruncher = false
+
         }
         debug {
+//            aaptOptions.cruncherEnabled = false
+//            aaptOptions.useNewCruncher = false
+
         }
     }
 }
@@ -41,7 +48,8 @@ dependencies {
     //google play
     api 'com.google.android.gms:play-services-auth:15.0.1'
 
-    api 'com.android.support:support-v4:27.1.1'    //rxjava
+    api 'com.android.support:support-v4:27.1.1'
+    //rxjava
     api 'io.reactivex:rxandroid:1.1.0'
     //rxandroid
     api 'com.google.code.gson:gson:2.7'
@@ -54,4 +62,10 @@ dependencies {
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
     //权限库
     api 'com.yanzhenjie:permission:2.0.0-rc11'
+
+    api 'com.qiniu:happy-dns:0.2.13'
+    api 'com.squareup.okhttp3:okhttp:3.9.0'
+    //百分比布局
+//    api 'com.android.support:percent:27.0.0'
+//    implementation 'me.jessyan:autosize:0.9.1'
 }

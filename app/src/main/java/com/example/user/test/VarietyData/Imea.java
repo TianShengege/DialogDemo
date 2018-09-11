@@ -1,4 +1,4 @@
-package com.example.user.test.CreateImea;
+package com.example.user.test.VarietyData;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

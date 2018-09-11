@@ -6,13 +6,15 @@ import android.util.Log;
 import com.example.user.test.Constant.Constant;
 import com.example.user.test.Entity.Student;
 import com.example.user.test.Handler.XYHandler;
-import com.example.user.test.Service.RequestServices;
+import com.example.user.test.Service.ApiService;
 import com.example.user.test.Service.RxService;
 import com.example.user.test.Service.RxText;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,7 +60,7 @@ public class Retrofits {
 
     private void makeRetrofit( Retrofit tetrofit) {
         //拼接连接
-        RequestServices rqtServ = tetrofit.create(RequestServices.class);
+        ApiService rqtServ = tetrofit.create(ApiService.class);
         Call<ResponseBody> call = rqtServ.getString();
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -82,6 +84,24 @@ public class Retrofits {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+            }
+        });
+    }
+
+    private void makeOkHttp(String url) {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+        Request request = new Request.Builder().method("GET", null).url(url).build();
+        okhttp3.Call call = okHttpClient.newCall(request);
+        call.enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(okhttp3.Call call, IOException e) {
+                Log.i("XYSDK", "请求失败：" + e.toString());
+            }
+
+            @Override
+            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
+                final String data = response.body().string();
+                Log.i("XYSDK", "提交成功： " + data );
             }
         });
     }
